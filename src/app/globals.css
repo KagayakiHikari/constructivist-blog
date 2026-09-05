@@ -1,0 +1,254 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --c-red: #e62617;
+  --c-black: #0b0b0b;
+  --c-yellow: #f7c61a;
+  --c-blue: #1d4ed8;
+  --c-paper: #f4f0e6;
+  --c-white: #ffffff;
+  --c-ink: #111111;
+  --c-muted: #6f6a62;
+  --c-danger: #d91f2a;
+  --c-success: #12805c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--c-paper);
+  color: var(--c-ink);
+  font-family: Inter, "Segoe UI", "Helvetica Neue", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--c-yellow);
+  color: var(--c-black);
+}
+
+.construct-grid-bg {
+  background-image:
+    linear-gradient(90deg, rgba(11, 11, 11, 0.05) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(11, 11, 11, 0.05) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+.construct-clip {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 32px), calc(100% - 32px) 100%, 0 100%);
+}
+
+.construct-clip-alt {
+  clip-path: polygon(32px 0, 100% 0, 100% 100%, 0 100%, 0 32px);
+}
+
+.construct-card {
+  @apply relative border-4 border-construct-black bg-white;
+  box-shadow: 10px 10px 0 var(--c-black);
+}
+
+.construct-card-hover {
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.construct-card-hover:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 16px 16px 0 var(--c-black);
+}
+
+.construct-button {
+  @apply inline-flex items-center justify-center gap-2 border-4 border-construct-black px-5 py-3 font-display text-sm uppercase tracking-[0.12em] transition-all;
+  box-shadow: 6px 6px 0 var(--c-black);
+}
+
+.construct-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 9px 9px 0 var(--c-black);
+}
+
+.construct-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--c-black);
+}
+
+.construct-button-primary {
+  background: var(--c-red);
+  color: var(--c-white);
+}
+
+.construct-button-secondary {
+  background: var(--c-yellow);
+  color: var(--c-black);
+}
+
+.construct-button-dark {
+  background: var(--c-black);
+  color: var(--c-white);
+}
+
+.construct-button-danger {
+  background: var(--c-danger);
+  color: var(--c-white);
+}
+
+.construct-input {
+  @apply w-full border-4 border-construct-black bg-white px-4 py-3 font-body text-sm text-construct-ink outline-none transition-shadow;
+}
+
+.construct-input:focus {
+  box-shadow: 6px 6px 0 var(--c-yellow);
+}
+
+.construct-label {
+  @apply mb-2 block font-display text-xs uppercase tracking-[0.2em] text-construct-black;
+}
+
+.construct-tag {
+  @apply inline-flex items-center border-2 border-construct-black px-3 py-1 font-display text-[10px] uppercase tracking-[0.16em];
+}
+
+.construct-heading {
+  @apply font-display uppercase leading-[0.92] tracking-[-0.02em];
+}
+
+.construct-number {
+  font-variant-numeric: tabular-nums;
+}
+
+.construct-scrollbar::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+
+.construct-scrollbar::-webkit-scrollbar-track {
+  background: #ddd7c9;
+}
+
+.construct-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--c-black);
+}
+
+.markdown-body {
+  @apply max-w-none text-[16px] leading-[1.85] text-construct-ink;
+}
+
+.markdown-body > * + * {
+  @apply mt-5;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4 {
+  @apply construct-heading mt-10 text-construct-black;
+}
+
+.markdown-body h1 {
+  @apply text-4xl md:text-5xl;
+}
+
+.markdown-body h2 {
+  @apply border-b-4 border-construct-red pb-2 text-3xl md:text-4xl;
+}
+
+.markdown-body h3 {
+  @apply text-2xl md:text-3xl;
+}
+
+.markdown-body h4 {
+  @apply text-xl;
+}
+
+.markdown-body p {
+  @apply my-0;
+}
+
+.markdown-body a {
+  @apply border-b-4 border-construct-blue font-semibold text-construct-blue no-underline;
+}
+
+.markdown-body a:hover {
+  @apply bg-construct-blue text-white;
+}
+
+.markdown-body strong {
+  @apply bg-construct-yellow px-1 font-display text-black;
+}
+
+.markdown-body em {
+  @apply italic;
+}
+
+.markdown-body ul {
+  @apply list-none border-l-8 border-construct-red pl-5;
+}
+
+.markdown-body ul li {
+  @apply relative py-1 pl-5;
+}
+
+.markdown-body ul li::before {
+  content: "■";
+  position: absolute;
+  left: 0;
+  color: var(--c-red);
+}
+
+.markdown-body ol {
+  @apply list-decimal border-l-8 border-construct-black pl-8;
+}
+
+.markdown-body ol li {
+  @apply py-1;
+}
+
+.markdown-body blockquote {
+  @apply relative border-4 border-construct-black bg-construct-yellow px-6 py-5 text-lg font-semibold text-black;
+  box-shadow: 8px 8px 0 var(--c-black);
+}
+
+.markdown-body blockquote p {
+  @apply my-0;
+}
+
+.markdown-body code {
+  @apply border-2 border-construct-black bg-construct-black px-2 py-1 font-mono text-[0.9em] text-construct-yellow;
+}
+
+.markdown-body pre {
+  @apply overflow-x-auto border-4 border-construct-black bg-construct-black p-5;
+  box-shadow: 8px 8px 0 var(--c-red);
+}
+
+.markdown-body pre code {
+  @apply border-0 bg-transparent p-0 text-sm text-white;
+}
+
+.markdown-body img {
+  @apply my-6 block max-w-full border-4 border-construct-black bg-white p-2;
+  box-shadow: 10px 10px 0 var(--c-yellow);
+}
+
+.markdown-body table {
+  @apply w-full border-collapse border-4 border-construct-black bg-white;
+}
+
+.markdown-body th {
+  @apply border-2 border-construct-black bg-construct-black px-4 py-3 text-left font-display text-xs uppercase tracking-widest text-white;
+}
+
+.markdown-body td {
+  @apply border-2 border-construct-black px-4 py-3;
+}
+
+.markdown-body hr {
+  @apply my-8 border-t-8 border-construct-black;
+}
