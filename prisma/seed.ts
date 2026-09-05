@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 async function main() {
   const username = process.env.DEFAULT_ADMIN_USERNAME || "test";
-  const password = process.env.DEFAULT_ADMIN_PASSWORD || "1230321";
+  const password = process.env.DEFAULT_ADMIN_PASSWORD || (process.env.CI ? "ci-only-admin" : "");
 
   const existingAdmin = await prisma.user.findFirst({
     where: { role: "ADMIN" }
