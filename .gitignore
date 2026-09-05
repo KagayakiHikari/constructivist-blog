@@ -15,3 +15,4 @@ storage/uploads/*
 !storage/uploads/.gitkeep
 next-env.d.ts
 tsconfig.tsbuildinfo
+dist

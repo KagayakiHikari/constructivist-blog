@@ -1,6 +1,51 @@
 # CONSTRUCTIVIST BLOG
 
 一个大胆、前卫、可运行的个人 Blog 系统。项目采用构成主义 / Constructivism 视觉语言：红、黑、黄、蓝，高饱和色块，斜切结构，硬边框，偏移阴影，海报式排版。
+## 静态 GitHub Pages 版本
+
+除了完整动态版，本仓库也包含一条纯静态发布链路，适合部署到 GitHub Pages：
+
+- 文章源文件：`content/posts/*.md`
+- 关于页：`content/about.md`
+- 静态样式：`static/styles.css`
+- 构建脚本：`scripts/build-static.mjs`
+- 部署工作流：`.github/workflows/pages.yml`
+
+本地构建：
+
+```powershell
+npm run build:static
+```
+
+输出目录：
+
+```text
+dist/
+```
+
+静态版特点：
+
+- 无数据库
+- 无后台
+- 无服务端 API
+- 纯 HTML / CSS 输出
+- 自动生成 `rss.xml`、`sitemap.xml`、`robots.txt`
+- 推送到 `main` 后由 GitHub Actions 自动部署
+
+新增文章时，在 `content/posts` 中添加 Markdown 文件并包含 front matter：
+
+```md
+---
+title: 文章标题
+slug: article-slug
+date: 2026-09-05
+tags: 设计, 前端
+cover: /decorative-geometry.svg
+excerpt: 文章摘要
+---
+
+正文内容...
+```
 
 ## 功能
 
